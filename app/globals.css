@@ -106,3 +106,7 @@ a {
   overflow: hidden;
   padding: 3rem 4rem;
 }
+
+.pagelayout {
+  padding: 0 15rem;
+}

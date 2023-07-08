@@ -37,9 +37,8 @@ export async function getSinglePost(slug: string) {
     query: `
     query getSinglePost {
       recipe(idType: URI, id: "${slug}") {
-        content(format: RAW)
         date
-        title(format: RAW)
+        title(format: RENDERED)
         excerpt
         featuredImage {
           node {
@@ -49,33 +48,22 @@ export async function getSinglePost(slug: string) {
             mediaItemUrl
           }
         }
-        mealTypes {
+        cookingMethods {
           nodes {
-            children {
-              edges {
-                node {
-                  id
-                }
-              }
-            }
             name
-            taxonomyName
           }
         }
-        terms {
+        mealTypes {
           nodes {
-            ... on Cooking_method {
-              id
-              name
-            }
-            ... on Diet {
-              id
-              name
-            }
-            ... on Meal_type {
-              id
-              name
-            }
+            name
+          }
+        }
+        recipeAuthor(format: RAW)
+        recipeIngredients(format: RENDERED)
+        recipeInstructions(format: RENDERED)
+        diets {
+          nodes {
+            name
           }
         }
       }
