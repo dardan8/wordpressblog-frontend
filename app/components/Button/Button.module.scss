@@ -1,0 +1,26 @@
+.primary_button {
+  padding: 1rem 2rem;
+  background-color: var(--blackText);
+  color: var(--whiteText);
+  border-radius: 0.7rem;
+  gap: 0.5rem;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 0.6px;
+  box-sizing: border-box;
+  transition: 0.1s ease-in;
+
+  &:hover {
+    background-color: var(--blackTextHover);
+    // transform: scale(1.03);
+    .img_icon {
+      transform: translateX(30%);
+      transition: 0.1s ease-in;
+    }
+  }
+}

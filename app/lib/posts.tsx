@@ -59,8 +59,8 @@ export async function getSinglePost(slug: string) {
           }
         }
         recipeAuthor(format: RAW)
-        recipeIngredients(format: RENDERED)
-        recipeInstructions(format: RENDERED)
+        recipeIngredients(format: RAW)
+        recipeInstructions(format: RAW)
         diets {
           nodes {
             name

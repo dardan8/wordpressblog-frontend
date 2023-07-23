@@ -8,13 +8,15 @@ type HeaderProps = {
   excerpt: string;
   imageUrl: string;
   date: string;
+  mealType: string;
 };
 
-const Header = ({ title, excerpt, imageUrl, date }: HeaderProps) => {
+const Header = ({ title, excerpt, imageUrl, date, mealType }: HeaderProps) => {
   return (
     <div className={styles.header_wraper}>
       <div>
-        <Tag tag='Name' link='/recipe' />
+        <Tag tag={mealType} link='/recipe' />
+        {/* <Tag tag='Name' link='/recipe' /> */}
         <h1>{title}</h1>
         <h3>{excerpt}</h3>
         <p>{date}</p>
