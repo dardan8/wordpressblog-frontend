@@ -1,0 +1,27 @@
+.recentscontainer {
+  width: 100%;
+  background-color: #f4f4f4;
+
+  .titleswrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 3rem;
+
+    h1 {
+      background: linear-gradient(
+        270deg,
+        var(--primaryColor) 0%,
+        var(--secondaryColor) 20%
+      );
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .recipeswrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

@@ -32,6 +32,39 @@ export async function getAllPosts() {
   return allPosts;
 }
 
+export async function getLastThreePosts() {
+  const query = {
+    query: `
+        {
+          recipes(first: 3) {
+            nodes {
+              id
+              title
+              slug
+              recipeAuthor
+              recipeIngredients
+              recipeInstructions
+              link
+              featuredImage {
+                node {
+                  description
+                  altText
+                  caption
+                  mediaItemUrl
+                }
+              }
+              excerpt(format: RAW)
+            }
+          }
+        
+       }
+     `,
+  };
+  const resJson = await graphqlRequest(query);
+  const allPosts = resJson?.data?.recipes?.nodes;
+  return allPosts;
+}
+
 export async function getSinglePost(slug: string) {
   const query = {
     query: `

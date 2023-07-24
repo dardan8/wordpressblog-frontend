@@ -1,0 +1,39 @@
+.featuredcontainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .imagewrapper {
+      overflow: hidden;
+      border-radius: 0.7rem;
+
+      .featured_image {
+        object-fit: cover;
+        border-radius: 0.7rem;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.06);
+          transition: transform 0.3s ease;
+        }
+      }
+    }
+  }
+}

@@ -4,14 +4,16 @@ import Link from "next/link";
 
 type TagProps = {
   tag: string;
-  link: string;
+  link?: string;
 };
 
 const Tag = ({ tag, link }: TagProps) => {
-  return (
+  return link ? (
     <Link href={link}>
       <span className={styles.tag}>{tag}</span>
     </Link>
+  ) : (
+    <span className={styles.tag_nolink}>{tag}</span>
   );
 };
 
