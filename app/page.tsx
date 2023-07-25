@@ -1,10 +1,9 @@
-import Image from "next/image";
 import styles from "./page.module.css";
-import Link from "next/link";
-import BlogOverviewHeader from "./components/BlogOverviewHeader/BlogOverviewHeader";
+import BlogOverviewHeader from "./containers/BlogOverviewHeader/BlogOverviewHeader";
 import FeaturedContainer from "./containers/FeaturedContainer/FeaturedContainer";
 import RecentsContainer from "./containers/RecentsContainer/RecentsContainer";
 import MealsContainer from "./containers/MealsContainer/MealsContainer";
+import VeganRecipeContainer from "./containers/VeganRecipeContainer/VeganRecipeContainer";
 
 export default function Home() {
   return (
@@ -13,6 +12,7 @@ export default function Home() {
       <FeaturedContainer />
       <RecentsContainer />
       <MealsContainer />
+      <VeganRecipeContainer />
     </main>
   );
 }

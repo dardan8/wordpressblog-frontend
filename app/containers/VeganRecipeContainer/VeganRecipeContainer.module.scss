@@ -1,0 +1,30 @@
+.meals {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #f4f4f4;
+
+  .textwrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .meals2 {
+    display: flex;
+    width: 100%;
+  }
+
+  .featuredone {
+    display: flex;
+    width: 50%;
+    align-self: stretch;
+  }
+
+  .featuredtwo {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./BlogOverviewHeader.module.scss";
 import Link from "next/link";
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button";
 
 const BlogOverviewHeader = () => {
   return (
