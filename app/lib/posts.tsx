@@ -61,8 +61,8 @@ export async function getLastThreePosts() {
      `,
   };
   const resJson = await graphqlRequest(query);
-  const allPosts = resJson?.data?.recipes?.nodes;
-  return allPosts;
+  const result = resJson?.data?.recipes?.nodes;
+  return result;
 }
 
 export async function getSinglePost(slug: string) {
@@ -107,4 +107,22 @@ export async function getSinglePost(slug: string) {
   const resJson = await graphqlRequest(query);
   const singlePost = resJson?.data?.recipe;
   return singlePost;
+}
+
+export async function getMealTypes() {
+  const query = {
+    query: `
+     {
+      mealTypes {
+        nodes {
+          id
+          name
+        }
+      }
+    }
+     `,
+  };
+  const resJson = await graphqlRequest(query);
+  const response = resJson?.data?.mealTypes?.nodes;
+  return response;
 }

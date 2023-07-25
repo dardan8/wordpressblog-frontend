@@ -3,6 +3,8 @@ import styles from "./RecentsContainer.module.scss";
 import BlogCard from "@/app/components/BlogCard/BlogCard";
 import { getLastThreePosts } from "../../lib/posts";
 import { RecipeProps } from "@/app/types";
+import Button from "@/app/components/Button/Button";
+import Link from "next/link";
 
 const RecentsContainer = async () => {
   const recipes = await getLastThreePosts();
@@ -25,6 +27,11 @@ const RecentsContainer = async () => {
             />
           );
         })}
+      </div>
+      <div className={styles.buttonwrapper}>
+        <Link href='/recieps'>
+          <Button placeholder='View all Recipes' />
+        </Link>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import Link from "next/link";
 import BlogOverviewHeader from "./components/BlogOverviewHeader/BlogOverviewHeader";
 import FeaturedContainer from "./containers/FeaturedContainer/FeaturedContainer";
 import RecentsContainer from "./containers/RecentsContainer/RecentsContainer";
+import MealsContainer from "./containers/MealsContainer/MealsContainer";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <BlogOverviewHeader />
       <FeaturedContainer />
       <RecentsContainer />
+      <MealsContainer />
     </main>
   );
 }

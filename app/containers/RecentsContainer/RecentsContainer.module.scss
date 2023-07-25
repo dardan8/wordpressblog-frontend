@@ -23,5 +23,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .buttonwrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 3rem;
   }
 }
