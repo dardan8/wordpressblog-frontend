@@ -4,6 +4,7 @@ import FeaturedContainer from "./containers/FeaturedContainer/FeaturedContainer"
 import RecentsContainer from "./containers/RecentsContainer/RecentsContainer";
 import MealsContainer from "./containers/MealsContainer/MealsContainer";
 import VeganRecipeContainer from "./containers/VeganRecipeContainer/VeganRecipeContainer";
+import MediterraneanRecipeContainer from "./containers/MediterraneanRecipeContainer/MediterraneanRecipeContainer";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <RecentsContainer />
       <MealsContainer />
       <VeganRecipeContainer />
+      <MediterraneanRecipeContainer />
     </main>
   );
 }
