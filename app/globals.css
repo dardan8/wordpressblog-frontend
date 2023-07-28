@@ -38,5 +38,6 @@ h3 {
 
 .recipe_posts {
   display: flex;
+  flex-direction: column;
   padding: 5rem 15rem;
 }

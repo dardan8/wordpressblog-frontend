@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import GetAllPosts from "../components/GetAllPosts";
 import { RecipeProps } from "../types";
-import { getAllPosts } from "../lib/posts";
+import { getAllRecipes } from "../lib/posts";
+import LoadMoreButton from "../components/LoadMoreButton/LoadMoreButton";
 
 export default async function Page() {
-  const recipes = await getAllPosts();
+  const allRecipes = await getAllRecipes();
 
   return (
     <div className='recipe_posts'>
-      <GetAllPosts recipePosts={recipes} />
+      <GetAllPosts recipes={allRecipes} />
     </div>
   );
 }

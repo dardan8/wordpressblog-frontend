@@ -1,35 +1,44 @@
 import graphqlRequest from "./graphqlRequest";
 
-export async function getAllPosts() {
+export async function getAllRecipes(endCursor = null) {
+  const condition = `after: "${endCursor}" first: 6`;
+
   const query = {
     query: `
         {
-         recipes {
-           nodes {
-             id
-             title
-             slug
-             recipeAuthor
-             recipeIngredients
-             recipeInstructions
-             link
-             featuredImage {
-               node {
-                 description
-                 altText
-                 caption
-                 mediaItemUrl
-               }
-             }
-             excerpt(format: RAW)
-           }
-         }
+          recipes (${condition}){
+            nodes {
+              date
+              id
+              title
+              slug
+              recipeAuthor
+              recipeIngredients
+              recipeInstructions
+              link
+              featuredImage {
+                node {
+                  description
+                  altText
+                  caption
+                  mediaItemUrl
+                }
+              }
+              excerpt(format: RAW)
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
+            }
+          }        
        }
      `,
   };
   const resJson = await graphqlRequest(query);
-  const allPosts = resJson?.data?.recipes?.nodes;
-  return allPosts;
+  const allRecipes = resJson?.data?.recipes;
+  return allRecipes;
 }
 
 export async function getFeaturedPosts() {
