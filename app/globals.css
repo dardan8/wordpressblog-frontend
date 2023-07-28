@@ -22,14 +22,6 @@ a {
   text-decoration: none;
 }
 
-.recipe_posts {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  overflow: hidden;
-  padding: 3rem 4rem;
-}
-
 .container {
   padding: 5rem 15rem;
 }
@@ -42,4 +34,9 @@ h1 {
 h3 {
   font-size: 1.5rem;
   font-weight: 500;
+}
+
+.recipe_posts {
+  display: flex;
+  padding: 5rem 15rem;
 }
