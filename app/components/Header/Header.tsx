@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./Header.module.scss";
 import Tag from "../Tag/Tag";
 import Author from "../Author/Author";
-import dateConverter from "../../lib/dateConverter";
+import DateElement from "../../lib/dateConverter";
 
 type HeaderProps = {
   title: string;
@@ -32,6 +32,9 @@ const Header = ({
         <h3>{excerpt}</h3>
         <time dateTime={date}> </time>
         <Author authorName={authorName} imageURL={authorImage} />
+        <p>
+          Published on <DateElement dateInput={date} />
+        </p>
       </div>
       <div className={styles.header_right}>
         <Image

@@ -3,7 +3,9 @@ import { parseISO, format } from "date-fns";
 type DateProps = {
   dateInput: string;
 };
-export default function Date({ dateInput }: DateProps) {
-  const date = format(parseISO(dateInput), "LLL d, yyyy");
-  return date;
+
+export default function DateElement({ dateInput }: DateProps) {
+  const date = parseISO(dateInput);
+
+  return <time dateTime={dateInput}>{format(date, "LLLL d, yyyy")}</time>;
 }
