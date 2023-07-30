@@ -1,4 +1,5 @@
 export type RecipeProps = {
+  date: string;
   id: string;
   title: string;
   slug: string;
@@ -15,6 +16,12 @@ export type RecipeProps = {
     };
   };
   excerpt: string;
+  pageInfo: {
+    endCursor: string;
+    hasNextPage: boolean;
+    hasPreviousPage: boolean;
+    startCursor: string;
+  };
 };
 
 export type RecipeRes = {

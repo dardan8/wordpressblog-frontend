@@ -1,5 +1,7 @@
 import graphqlRequest from "./graphqlRequest";
 
+//Query to retrieve all the recipes
+
 export async function getAllRecipes(endCursor = null) {
   const condition = `after: "${endCursor}" first: 6`;
 
@@ -41,6 +43,7 @@ export async function getAllRecipes(endCursor = null) {
   return allRecipes;
 }
 
+//Query to retrieve all the featured Recipes
 export async function getFeaturedPosts() {
   const query = {
     query: `
@@ -105,14 +108,16 @@ export async function getLastThreePosts() {
   return result;
 }
 
-export async function getSinglePost(slug: string) {
+//Query to retrieve a single Recipe
+
+export async function getSingleRecipe(slug: string) {
   const query = {
     query: `
-    query getSinglePost {
+    query getSingleRecipe {
       recipe(idType: URI, id: "${slug}") {
         date
         title(format: RENDERED)
-        excerpt
+        excerpt(format: RAW)
         featuredImage {
           node {
             altText
@@ -131,22 +136,28 @@ export async function getSinglePost(slug: string) {
             name
           }
         }
-        recipeAuthor(format: RAW)
-        recipeIngredients(format: RAW)
-        recipeInstructions(format: RAW)
         diets {
           nodes {
             name
           }
         }
+        recipeAuthor(format: RAW)
+        authorImage {
+          node {
+            mediaItemUrl
+          }
+        }
+        recipeIngredients(format: RAW)
+        recipeInstructions(format: RAW)
+        recipeIntroduction(format: RAW)
       }
     }
     `,
   };
 
   const resJson = await graphqlRequest(query);
-  const singlePost = resJson?.data?.recipe;
-  return singlePost;
+  const singleRecipe = resJson?.data?.recipe;
+  return singleRecipe;
 }
 
 export async function getMealTypes() {

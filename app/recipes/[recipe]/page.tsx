@@ -1,12 +1,11 @@
 import React from "react";
-import { getSinglePost } from "@/app/lib/posts";
+import { getSingleRecipe } from "@/app/lib/posts";
 import Header from "@/app/components/Header/Header";
 import Instructions from "@/app/components/Instructions/Instructions";
 import Ingredients from "@/app/components/Ingredients/Ingredients";
 
 export default async function Page({ params }: { params: { recipe: string } }) {
-  const singleRecipe = await getSinglePost(params.recipe);
-  console.log(singleRecipe);
+  const singleRecipe = await getSingleRecipe(params.recipe);
 
   return (
     <div className='pagelayout'>
@@ -16,6 +15,8 @@ export default async function Page({ params }: { params: { recipe: string } }) {
         imageUrl={singleRecipe.featuredImage.node.mediaItemUrl}
         date={singleRecipe.date}
         mealType={singleRecipe.diets.nodes[0].name}
+        authorName={singleRecipe.recipeAuthor}
+        authorImage={singleRecipe.authorImage.node.mediaItemUrl}
       />
       <Instructions instructions={singleRecipe.recipeInstructions} />
       <Ingredients ingredients={singleRecipe.recipeIngredients} />

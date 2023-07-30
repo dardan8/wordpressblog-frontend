@@ -22,7 +22,7 @@ const LoadMoreButton = ({ recipes, setRecipes }: any) => {
 
     updatedRecipes.pageInfo = newRecipes.pageInfo;
 
-    recipes.nodes.map((node: RecipeProps) => {
+    recipes.nodes.map((node: any) => {
       updatedRecipes.nodes.push(node);
     });
 

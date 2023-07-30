@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import styles from "./Header.module.scss";
 import Tag from "../Tag/Tag";
+import Author from "../Author/Author";
+import dateConverter from "../../lib/dateConverter";
 
 type HeaderProps = {
   title: string;
@@ -9,19 +11,37 @@ type HeaderProps = {
   imageUrl: string;
   date: string;
   mealType: string;
+  authorName: string;
+  authorImage: string;
 };
 
-const Header = ({ title, excerpt, imageUrl, date, mealType }: HeaderProps) => {
+const Header = ({
+  title,
+  excerpt,
+  imageUrl,
+  date,
+  mealType,
+  authorName,
+  authorImage,
+}: HeaderProps) => {
   return (
-    <div className={styles.header_wraper}>
-      <div>
-        <Tag tag={mealType} link='/recipe' />
-        {/* <Tag tag='Name' link='/recipe' /> */}
+    <div className={`${styles.header_wraper} container`}>
+      <div className={styles.header_left}>
+        <Tag tag={mealType + " Recipe"} link={`${mealType}`} />
         <h1>{title}</h1>
         <h3>{excerpt}</h3>
-        <p>{date}</p>
+        <time dateTime={date}> </time>
+        <Author authorName={authorName} imageURL={authorImage} />
       </div>
-      <Image src={imageUrl} alt='Header Image' width={500} height={300} />
+      <div className={styles.header_right}>
+        <Image
+          src={imageUrl}
+          alt='Header Image'
+          width={500}
+          height={300}
+          className={styles.header_image}
+        />
+      </div>
     </div>
   );
 };
