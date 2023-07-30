@@ -4,6 +4,6 @@ type DateProps = {
   dateInput: string;
 };
 export default function Date({ dateInput }: DateProps) {
-  //   const date = format(parseISO(dateInput), "LLL d, yyyy");
-  //   return date;
+  const date = format(parseISO(dateInput), "LLL d, yyyy");
+  return date;
 }
