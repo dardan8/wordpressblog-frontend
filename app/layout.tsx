@@ -1,5 +1,6 @@
 import "./globals.scss";
 import NavigationMenu from "./containers/NavigationMenu/NavigationMenu";
+import Footer from "./containers/FooterContainer/Footer";
 
 import { Inter } from "next/font/google";
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavigationMenu />
         {children}
+        <Footer />
       </body>
     </html>
   );
