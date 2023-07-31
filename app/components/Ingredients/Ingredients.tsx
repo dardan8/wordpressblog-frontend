@@ -7,14 +7,10 @@ type IngredientsProps = {
 
 const Ingredients = ({ ingredients }: IngredientsProps) => {
   return (
-    <div>
-      <>
-        <div
-          className={styles.ingredients_wrapper}
-          dangerouslySetInnerHTML={{ __html: ingredients }}
-        />
-      </>
-    </div>
+    <div
+      className={styles.ingredients_wrapper}
+      dangerouslySetInnerHTML={{ __html: ingredients }}
+    />
   );
 };
 

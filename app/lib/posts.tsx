@@ -147,9 +147,11 @@ export async function getSingleRecipe(slug: string) {
             mediaItemUrl
           }
         }
-        recipeIngredients(format: RAW)
+        recipeIngredients(format: RENDERED)
         recipeInstructions(format: RAW)
         recipeIntroduction(format: RAW)
+        recipePrepationTime
+        recipeYield
       }
     }
     `,

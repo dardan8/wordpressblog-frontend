@@ -8,7 +8,10 @@ type InstructionsProps = {
 const Instructions = ({ instructions }: InstructionsProps) => {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: instructions }} />
+      <div
+        dangerouslySetInnerHTML={{ __html: instructions }}
+        className={styles.instructions}
+      />
     </>
   );
 };

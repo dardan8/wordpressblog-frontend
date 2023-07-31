@@ -1,5 +1,15 @@
 .ingredients_wrapper {
-  display: flex;
-  background-color: #fff;
-  border: 1px solid gray;
+  padding: 0 1rem;
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      padding-bottom: 0.6rem;
+
+      &:before {
+        content: "◉";
+        margin-right: 0.5rem;
+      }
+    }
+  }
 }

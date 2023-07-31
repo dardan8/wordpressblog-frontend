@@ -22,10 +22,6 @@ a {
   text-decoration: none;
 }
 
-.container {
-  padding: 5rem 15rem;
-}
-
 h1 {
   font-size: 2.2rem;
   font-weight: 600;
@@ -40,4 +36,41 @@ h3 {
   display: flex;
   flex-direction: column;
   padding: 5rem 15rem;
+}
+
+.container {
+  padding: 5rem 15rem;
+}
+
+.blog_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+
+  padding: 5rem 30rem;
+  color: var(--blackText);
+
+  > p {
+    font-size: 18px;
+    line-height: 150%;
+    text-align: justify;
+  }
+
+  > h3 {
+    font-size: 30px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 12%;
+      bottom: 0%;
+      width: 200px;
+      height: 14px;
+      transform: skew(-12deg) translateX(-50%);
+      background: #dbebde;
+      z-index: -1;
+    }
+  }
 }

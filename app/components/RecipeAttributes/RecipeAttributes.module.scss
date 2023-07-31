@@ -1,0 +1,29 @@
+.attributes_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #efefef;
+  border-radius: 0.7rem;
+  height: 5rem;
+  box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.12);
+
+  > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    padding-right: 1rem;
+    border-right: 1px solid #cbcbcb;
+  }
+
+  > p:nth-last-child(1) {
+    border-right: none;
+  }
+
+  .icons {
+    font-size: 30px;
+  }
+}
