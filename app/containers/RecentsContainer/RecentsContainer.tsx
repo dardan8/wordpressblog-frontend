@@ -29,7 +29,7 @@ const RecentsContainer = async () => {
         })}
       </div>
       <div className={styles.buttonwrapper}>
-        <Link href='/recieps'>
+        <Link href='/recipes'>
           <Button placeholder='View all Recipes' />
         </Link>
       </div>
