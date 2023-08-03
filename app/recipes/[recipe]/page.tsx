@@ -1,4 +1,3 @@
-import React from "react";
 import { getSingleRecipe } from "@/app/lib/posts";
 import Header from "@/app/components/Header/Header";
 import Instructions from "@/app/components/Instructions/Instructions";
@@ -11,7 +10,7 @@ export default async function Page({ params }: { params: { recipe: string } }) {
   return (
     <div className='pagelayout'>
       <Header
-        title={singleRecipe.title}
+        title={singleRecipe?.title}
         excerpt={singleRecipe.excerpt}
         imageUrl={singleRecipe.featuredImage.node.mediaItemUrl}
         date={singleRecipe.date}

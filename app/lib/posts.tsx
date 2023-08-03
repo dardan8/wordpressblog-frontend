@@ -3,7 +3,7 @@ import graphqlRequest from "./graphqlRequest";
 //Query to retrieve all the recipes
 
 export async function getAllRecipes(endCursor = null) {
-  const condition = `after: "${endCursor}" first: 6`;
+  let condition = `after: "${endCursor}" first: 6`;
 
   const query = {
     query: `
@@ -40,6 +40,60 @@ export async function getAllRecipes(endCursor = null) {
   };
   const resJson = await graphqlRequest(query);
   const allRecipes = resJson?.data?.recipes;
+  return allRecipes;
+}
+
+//Query to retrieve Recipes by  taxonomy
+
+interface getRecipes {
+  endCursor?: null;
+  slug: string;
+}
+
+export async function getRecipesByTaxonomy({ endCursor, slug }: getRecipes) {
+  const condition = `after: "${endCursor}" first: 6`;
+
+  const query = {
+    query: `
+        {
+          mealtypes(where: {slug: "${slug}"}) {
+            edges {
+              node {
+                recipes (${condition}){
+                    nodes {
+                      date
+                      id
+                      title
+                      slug
+                      recipeAuthor
+                      recipeIngredients
+                      recipeInstructions
+                      link
+                      featuredImage {
+                        node {
+                          description
+                          altText
+                          caption
+                          mediaItemUrl
+                        }
+                      }
+                      excerpt(format: RAW)
+                    }
+                    pageInfo {
+                      endCursor
+                      hasNextPage
+                      hasPreviousPage
+                      startCursor
+                    }
+                  }        
+              }
+            }
+          }
+       }
+     `,
+  };
+  const resJson = await graphqlRequest(query);
+  const allRecipes = resJson?.data?.mealtypes?.edges[0].node.recipes.nodes;
   return allRecipes;
 }
 
@@ -113,7 +167,7 @@ export async function getLastThreePosts() {
 export async function getSingleRecipe(slug: string) {
   const query = {
     query: `
-    query getSingleRecipe {
+     {
       recipe(idType: URI, id: "${slug}") {
         date
         title(format: RENDERED)
@@ -131,7 +185,7 @@ export async function getSingleRecipe(slug: string) {
             name
           }
         }
-        mealTypes {
+        mealtypes {
           nodes {
             name
           }
@@ -166,16 +220,18 @@ export async function getMealTypes() {
   const query = {
     query: `
      {
-      mealTypes {
+      mealtypes {
         nodes {
           id
           name
+          slug
+          count
         }
       }
     }
      `,
   };
   const resJson = await graphqlRequest(query);
-  const response = resJson?.data?.mealTypes?.nodes;
+  const response = resJson?.data?.mealtypes?.nodes;
   return response;
 }
