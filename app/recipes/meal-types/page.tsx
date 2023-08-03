@@ -1,20 +1,19 @@
 import React from "react";
-import "./MealsContainer.module.scss";
 import { getMealTypes } from "@/app/lib/posts";
+import styles from "./page.module.scss";
 import CategoryTag from "@/app/components/CategoryTag/CategoryTag";
-import styles from "./MealsContainer.module.scss";
 
 type MealProps = {
   id: string;
   name: string;
 };
-const MealsContainer = async () => {
+
+const page = async () => {
   const mealTypes = await getMealTypes();
 
   return (
-    <div className={`${styles.meals} container`}>
-      <h1>Different recipes for every meal type</h1>
-      <p>Browse your favorite recipes now:</p>
+    <div className={`${styles.meals_section} container`}>
+      <h1>Browse recipes by meal mealTypes</h1>
       <div className={styles.meal_categories}>
         {mealTypes.map((meal: MealProps) => {
           return (
@@ -28,4 +27,5 @@ const MealsContainer = async () => {
     </div>
   );
 };
-export default MealsContainer;
+
+export default page;
