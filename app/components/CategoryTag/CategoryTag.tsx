@@ -10,7 +10,7 @@ type CatTagProps = {
 
 const CategoryTag = ({ name, link }: CatTagProps) => {
   return (
-    <Link href={link}>
+    <Link href={link} target='_blank'>
       <span className={styles.categorytag}>{name}</span>
     </Link>
   );

@@ -7,6 +7,7 @@ import GetAllPosts from "@/app/components/GetAllPosts";
 import BlogCard from "@/app/components/BlogCard/BlogCard";
 
 import styles from "./page.module.scss";
+import BlogOverviewHeader from "@/app/containers/BlogOverviewHeader/BlogOverviewHeader";
 type Params = {
   params: {
     mealtype: string;
@@ -22,9 +23,10 @@ const page = async ({ params }: Params) => {
 
   return (
     <div>
+      <BlogOverviewHeader />
       <h1>Meal Type </h1>
       <p>{params.mealtype}</p>
-      <div className={styles.recipe_area}>
+      <div className={`${styles.recipe_area} container`}>
         {selectedRecipes?.map((recipe: any) => (
           <BlogCard
             featuredImage={recipe.featuredImage.node.mediaItemUrl}
