@@ -19,6 +19,10 @@ const BlogCard = ({ featuredImage, slug, title, excerpt }: BlogCardProps) => {
         <div className={styles.card_body}>
           <h3 className={styles.card_title}>{title}</h3>
           <p>{excerpt}</p>
+          <div className={styles.card_bottom}>
+            <span>🕛 30 minutes</span>
+            <span>👥 3 servings</span>
+          </div>
         </div>
       </div>
     </Link>
