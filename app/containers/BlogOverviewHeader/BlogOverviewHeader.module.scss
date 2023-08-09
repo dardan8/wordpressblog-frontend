@@ -6,16 +6,18 @@
   width: 100%;
   height: 26rem;
   gap: 1.5rem;
-  background: #f4f4f4;
+  border-bottom: 1px solid #e5e5e5;
+  // background: #f4f4f4;
 
   color: var(--primaryTextColor);
-  background-color: hsla(0, 0%, 100%, 0.622);
+  background-color: hsla(135, 0%, 100%, 1);
+  background-color: hsla(135, 0%, 100%, 1);
   background-image: radial-gradient(
-      at 3% 4%,
-      hsla(120, 50%, 56%, 0.53) 0px,
+      at 47% 6%,
+      hsla(155, 100%, 97%, 1) 0px,
       transparent 50%
     ),
-    radial-gradient(at 53% 7%, hsla(44, 100%, 86%, 0.74) 0px, transparent 50%),
-    radial-gradient(at 48% 80%, hsla(194, 100%, 92%, 0.65) 0px, transparent 50%),
-    radial-gradient(at 90% 84%, hsla(18, 100%, 85%, 0.69) 0px, transparent 50%);
+    radial-gradient(at 13% 0%, hsla(101, 37%, 71%, 1) 0px, transparent 50%),
+    radial-gradient(at 68% 3%, hsla(30, 100%, 97%, 1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(25, 100%, 81%, 1) 0px, transparent 50%);
 }

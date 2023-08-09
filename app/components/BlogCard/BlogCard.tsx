@@ -1,15 +1,28 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./BlogCard.module.scss";
+import { FaRegClock, FaRegUser } from "react-icons/fa6";
+import { GrRestaurant } from "react-icons/gr";
 
 type BlogCardProps = {
   featuredImage: string;
   slug: string;
   title: string;
   excerpt?: string;
+  cookingTime: string;
+  servings: string;
+  cookingMethod: string;
 };
 
-const BlogCard = ({ featuredImage, slug, title, excerpt }: BlogCardProps) => {
+const BlogCard = ({
+  featuredImage,
+  slug,
+  title,
+  excerpt,
+  cookingTime,
+  servings,
+  cookingMethod,
+}: BlogCardProps) => {
   return (
     <Link href={`/recipes/${slug}`}>
       <div className={styles.card_wrapper}>
@@ -18,10 +31,18 @@ const BlogCard = ({ featuredImage, slug, title, excerpt }: BlogCardProps) => {
         </div>
         <div className={styles.card_body}>
           <h3 className={styles.card_title}>{title}</h3>
-          <p>{excerpt}</p>
+          <p className={styles.card_excerpt}>{excerpt}</p>
           <div className={styles.card_bottom}>
-            <span>🕛 30 minutes</span>
-            <span>👥 3 servings</span>
+            <div className={styles.card__iconarea}>
+              <FaRegClock className={styles.card_icon} /> {cookingTime} minutes
+            </div>
+            <div className={styles.card__iconarea}>
+              <FaRegUser className={styles.card_icon} /> {servings}
+              {servings == "1" ? " Person" : " People"}
+            </div>
+            <div className={styles.card__iconarea}>
+              <GrRestaurant className={styles.card_icon} /> {cookingMethod}
+            </div>
           </div>
         </div>
       </div>

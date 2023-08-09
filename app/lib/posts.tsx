@@ -135,6 +135,7 @@ export async function getLastThreePosts() {
         {
           recipes(first: 3) {
             nodes {
+              date
               id
               title
               slug
@@ -150,10 +151,16 @@ export async function getLastThreePosts() {
                   mediaItemUrl
                 }
               }
+              cookingMethods {
+                nodes {
+                  name
+                }
+              }
+              recipePrepationTime
+              recipeYield
               excerpt(format: RAW)
             }
           }
-        
        }
      `,
   };

@@ -7,6 +7,13 @@ export type RecipeProps = {
   recipeIngredients: string;
   recipeInstructions: string;
   link: string;
+  recipeYield: string;
+  recipePrepationTime: string;
+  cookingMethods: {
+    nodes: {
+      name: string;
+    }[];
+  };
   featuredImage: {
     node: {
       description: string;

@@ -34,6 +34,9 @@ const page = async ({ params }: Params) => {
             title={recipe.title}
             excerpt={recipe.excerpt}
             key={recipe.id}
+            cookingTime={recipe.cookingTime}
+            servings={recipe.servings}
+            cookingMethod={recipe.cookingMethods}
           />
         ))}
       </div>
