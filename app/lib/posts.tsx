@@ -48,15 +48,22 @@ export async function getAllRecipes(endCursor = null) {
 interface getRecipes {
   endCursor?: null;
   slug: string;
+  taxonomy: string;
+  first: number;
 }
 
-export async function getRecipesByTaxonomy({ endCursor, slug }: getRecipes) {
-  const condition = `after: "${endCursor}" first: 6`;
+export async function getRecipesByTaxonomy({
+  endCursor,
+  slug,
+  taxonomy,
+  first,
+}: getRecipes) {
+  const condition = `after: "${endCursor}" first: ${first}`;
 
   const query = {
     query: `
         {
-          mealtypes(where: {slug: "${slug}"}) {
+         ${taxonomy}(where: {slug: "${slug}"}) {
             edges {
               node {
                 recipes (${condition}){
@@ -68,6 +75,8 @@ export async function getRecipesByTaxonomy({ endCursor, slug }: getRecipes) {
                       recipeAuthor
                       recipeIngredients
                       recipeInstructions
+                      recipePrepationTime
+                      recipeYield        
                       link
                       featuredImage {
                         node {
@@ -93,8 +102,13 @@ export async function getRecipesByTaxonomy({ endCursor, slug }: getRecipes) {
      `,
   };
   const resJson = await graphqlRequest(query);
-  const allRecipes = resJson?.data?.mealtypes?.edges[0].node.recipes.nodes;
-  return allRecipes;
+  if (taxonomy === "mealtypes") {
+    const allRecipes = resJson?.data?.mealtypes?.edges[0].node.recipes.nodes;
+    return allRecipes;
+  } else if (taxonomy === "diets") {
+    const allRecipes = resJson?.data?.diets?.edges[0].node.recipes.nodes;
+    return allRecipes;
+  }
 }
 
 //Query to retrieve all the featured Recipes

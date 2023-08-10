@@ -1,12 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./HorizontalCard.module.scss";
+import { FaRegClock, FaRegUser } from "react-icons/fa6";
 
 type HorizontalCardProps = {
   featuredImage: string;
   slug: string;
   title: string;
   excerpt?: string;
+  servings: string;
+  cookingTime: string;
 };
 
 const HorizontalCard = ({
@@ -14,6 +17,8 @@ const HorizontalCard = ({
   slug,
   title,
   excerpt,
+  servings,
+  cookingTime,
 }: HorizontalCardProps) => {
   return (
     <Link href={`/recipes/${slug}`}>
@@ -25,7 +30,12 @@ const HorizontalCard = ({
           <h3 className={styles.card_title}>{title}</h3>
           <p>{excerpt}</p>
           <div>
-            <span className={styles.card_items}>4 people | 20 minutes</span>
+            <span className={styles.card_items}>
+              <FaRegUser className={styles.card__iconarea} />
+              {servings} Servings
+              <FaRegClock className={styles.card__iconarea} />
+              {cookingTime} Min
+            </span>
           </div>
         </div>
       </div>

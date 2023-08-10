@@ -16,10 +16,13 @@ type Params = {
 
 const page = async ({ params }: Params) => {
   let slugpage = params.mealtype;
-  const recipes = await getRecipesByTaxonomy({ slug: slugpage });
+  const recipes = await getRecipesByTaxonomy({
+    slug: slugpage,
+    taxonomy: "mealtypes",
+    first: 6,
+  });
 
   const selectedRecipes = recipes;
-  console.log(selectedRecipes);
 
   return (
     <div>

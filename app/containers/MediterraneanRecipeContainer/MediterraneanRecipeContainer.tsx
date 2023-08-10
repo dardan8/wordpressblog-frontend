@@ -1,14 +1,15 @@
-import BlogCard from "@/app/components/BlogCard/BlogCard";
-import LargeBlogCard from "@/app/components/BlogCard/LargeBlogCard";
-
 import React from "react";
 import styles from "./MediterraneanRecipeContainer.module.scss";
-import { getFeaturedPosts } from "@/app/lib/posts";
+import { getRecipesByTaxonomy } from "@/app/lib/posts";
 import { RecipeProps } from "@/app/types";
 import HorizontalCard from "@/app/components/BlogCard/HorizontalCard";
 
 const MediterraneanRecipeContainer = async () => {
-  const featuredRecipes = await getFeaturedPosts();
+  const featuredRecipes = await getRecipesByTaxonomy({
+    taxonomy: "diets",
+    slug: "mediterranean",
+    first: 3,
+  });
 
   return (
     <div className={`${styles.med_wrapper} container`}>
@@ -17,13 +18,15 @@ const MediterraneanRecipeContainer = async () => {
         <p>A selection of delicious and healthy mediterranean recipes</p>
       </div>
       <div className={styles.recipecards}>
-        {featuredRecipes.map((recipe: RecipeProps) => {
+        {featuredRecipes?.map((recipe: RecipeProps) => {
           return (
             <HorizontalCard
               featuredImage={recipe.featuredImage.node.mediaItemUrl}
               slug={recipe.slug}
               title={recipe.title}
               key={recipe.id}
+              servings={recipe.recipeYield}
+              cookingTime={recipe.recipePrepationTime}
             />
           );
         })}
