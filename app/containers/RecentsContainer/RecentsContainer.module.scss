@@ -9,13 +9,7 @@
     padding-bottom: 3rem;
 
     h1 {
-      background: linear-gradient(
-        270deg,
-        var(--primaryColor) 0%,
-        var(--secondaryColor) 20%
-      );
-      background-clip: text;
-      color: transparent;
+      color: var(--blackText);
     }
   }
 

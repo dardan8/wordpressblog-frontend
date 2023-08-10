@@ -2,23 +2,29 @@ import React from "react";
 import styles from "./FeaturedContainer.module.scss";
 import Tag from "@/app/components/Tag/Tag";
 import Image from "next/image";
-import FeaturedImage from "../../../public/assets/images/brooke-lark-4J059aGa5s4-unsplash.jpg";
-const FeaturedContainer = () => {
+import Link from "next/link";
+import { getFeaturedPosts } from "@/app/lib/posts";
+
+const FeaturedContainer = async () => {
+  const featuredPosts = await getFeaturedPosts();
+  const featuredPost = featuredPosts[0];
+
+  console.log(featuredPost);
   return (
     <div className={`${styles.featuredcontainer} container`}>
-      <div className={styles.left}>
-        <Tag tag='Featured' />
-        <h1>Recipe Title - delicios meal for ya</h1>
-        <h3>
-          This is the perfect meal to eat with your fam on a lovely summer
-          night.
-        </h3>
-        <p>Publish on October</p>
-      </div>
+      <Link href={`/recipes/${featuredPost.slug}`}>
+        <div className={styles.left}>
+          <Tag tag='Featured' />
+          <h1>{featuredPost.title}</h1>
+          <h3>{featuredPost.excerpt}</h3>
+          <p>By: {featuredPost.recipeAuthor}</p>
+        </div>
+      </Link>
+
       <div className={styles.right}>
         <div className={styles.imagewrapper}>
           <Image
-            src={FeaturedImage}
+            src={featuredPost.featuredImage.node.mediaItemUrl}
             width={500}
             height={300}
             alt='Featured Image'

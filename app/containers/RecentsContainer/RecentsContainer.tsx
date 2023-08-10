@@ -12,8 +12,7 @@ const RecentsContainer = async () => {
   return (
     <div className={`${styles.recentscontainer} container`}>
       <div className={styles.titleswrapper}>
-        <h1>Recent Recipes</h1>
-        <p>Recently published posts</p>
+        <h1>Our most recent recipes</h1>
       </div>
       <div className={styles.recipeswrapper}>
         {recipes.map((recipe: RecipeProps) => {
