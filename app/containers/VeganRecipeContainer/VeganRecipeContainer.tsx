@@ -1,5 +1,5 @@
+import HorizontalCard from "@/app/components/BlogCard/HorizontalCard";
 import BlogCard from "@/app/components/BlogCard/BlogCard";
-import LargeBlogCard from "@/app/components/BlogCard/LargeBlogCard";
 
 import styles from "./VeganRecipeContainer.module.scss";
 import { getFeaturedPosts } from "@/app/lib/posts";
@@ -16,22 +16,27 @@ const VeganRecipeContainer = async () => {
       </div>
       <div className={styles.meals2}>
         <div className={styles.featured_left}>
-          <LargeBlogCard
+          <BlogCard
             featuredImage={featuredRecipes[0].featuredImage.node.mediaItemUrl}
             slug={featuredRecipes[0].slug}
             title={featuredRecipes[0].title}
             excerpt={featuredRecipes[0].excerpt}
             key={featuredRecipes[0].id}
+            cookingTime={featuredRecipes[0].recipePrepationTime}
+            servings={featuredRecipes[0].recipePrepationTime}
+            cookingMethod={featuredRecipes[0]}
           />
         </div>
         <div className={styles.featured_right}>
-          {featuredRecipes.map((recipe: RecipeProps) => {
+          {featuredRecipes.slice(1, 3).map((recipe: RecipeProps) => {
             return (
-              <BlogCard
+              <HorizontalCard
                 featuredImage={recipe.featuredImage.node.mediaItemUrl}
                 slug={recipe.slug}
                 title={recipe.title}
                 key={recipe.id}
+                cookingTime={recipe.recipePrepationTime}
+                servings={recipe.recipeYield}
               />
             );
           })}

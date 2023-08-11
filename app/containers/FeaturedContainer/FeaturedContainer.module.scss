@@ -12,6 +12,15 @@
     align-items: flex-start;
     justify-content: center;
     gap: 2rem;
+
+    .featured_excerpt {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
   }
 
   .right {

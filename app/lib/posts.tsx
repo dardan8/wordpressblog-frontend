@@ -125,6 +125,13 @@ export async function getFeaturedPosts() {
               recipeIngredients
               recipeInstructions
               link
+              recipePrepationTime
+              recipeYield
+              cookingMethods {
+                nodes {
+                  name
+                }
+              }
               featuredImage {
                 node {
                   description

@@ -16,7 +16,7 @@ const FeaturedContainer = async () => {
         <div className={styles.left}>
           <Tag tag='Featured' />
           <h1>{featuredPost.title}</h1>
-          <h3>{featuredPost.excerpt}</h3>
+          <h3 className={styles.featured_excerpt}>{featuredPost.excerpt}</h3>
           <p>By: {featuredPost.recipeAuthor}</p>
         </div>
       </Link>

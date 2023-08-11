@@ -11,7 +11,7 @@ export default async function graphqlRequest(query: {}) {
     headers,
     body: JSON.stringify(query),
     next: {
-      revalidate: 60,
+      revalidate: 360,
     },
   });
 
