@@ -23,8 +23,8 @@ const VeganRecipeContainer = async () => {
             excerpt={featuredRecipes[0].excerpt}
             key={featuredRecipes[0].id}
             cookingTime={featuredRecipes[0].recipePrepationTime}
-            servings={featuredRecipes[0].recipePrepationTime}
-            cookingMethod={featuredRecipes[0]}
+            servings={featuredRecipes[0].recipeYield}
+            cookingMethod={featuredRecipes[0].cookingMethods.nodes[0].name}
           />
         </div>
         <div className={styles.featured_right}>

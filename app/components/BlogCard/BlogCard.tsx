@@ -11,7 +11,7 @@ type BlogCardProps = {
   excerpt?: string;
   cookingTime: string;
   servings: string;
-  cookingMethod: string;
+  cookingMethod?: string;
 };
 
 const BlogCard = ({
