@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import GetAllPosts from "../components/GetAllPosts";
-import { RecipeProps } from "../types";
 import { getAllRecipes } from "../lib/posts";
-import LoadMoreButton from "../components/LoadMoreButton/LoadMoreButton";
+import BlogOverviewHeader from "../containers/BlogOverviewHeader/BlogOverviewHeader";
 
 export default async function Page() {
   const allRecipes = await getAllRecipes();
 
   return (
-    <div className='recipe_posts'>
-      <GetAllPosts recipes={allRecipes} />
-    </div>
+    <>
+      <BlogOverviewHeader
+        title='A selection of revipes for all our readers'
+        subtitle='Easy to udnerstand and right to the point'
+      />
+      <div className='recipe_posts'>
+        <GetAllPosts recipes={allRecipes} />
+      </div>
+    </>
   );
 }

@@ -18,6 +18,9 @@ export default function GetAllPosts({ recipes }: any) {
             title={recipe.title}
             excerpt={recipe.excerpt}
             key={recipe.id}
+            cookingTime={recipe.recipePrepationTime}
+            servings={recipe.recipeYield}
+            cookingMethod={recipe.cookingMethods.nodes[0].name}
           />
         ))}
       </div>

@@ -17,7 +17,14 @@ export async function getAllRecipes(endCursor = null) {
               recipeAuthor
               recipeIngredients
               recipeInstructions
+              recipePrepationTime
+              recipeYield        
               link
+              cookingMethods {
+                nodes {
+                  name
+                }
+              }
               featuredImage {
                 node {
                   description
@@ -76,7 +83,12 @@ export async function getRecipesByTaxonomy({
                       recipeIngredients
                       recipeInstructions
                       recipePrepationTime
-                      recipeYield        
+                      recipeYield   
+                      cookingMethods {
+                        nodes {
+                          name
+                        }
+                      }     
                       link
                       featuredImage {
                         node {
@@ -94,6 +106,7 @@ export async function getRecipesByTaxonomy({
                       hasPreviousPage
                       startCursor
                     }
+                    
                   }        
               }
             }
