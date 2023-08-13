@@ -6,13 +6,17 @@ import { RecipeProps } from "@/app/types";
 import Button from "@/app/components/Button/Button";
 import Link from "next/link";
 
-const RecentsContainer = async () => {
+type RecentProps = {
+  title?: string;
+};
+
+const RecentsContainer = async ({ title }: RecentProps) => {
   const recipes = await getLastThreePosts();
 
   return (
     <div className={`${styles.recentscontainer} container`}>
       <div className={styles.titleswrapper}>
-        <h1>Our most recent recipes</h1>
+        <h1>{title}</h1>
       </div>
       <div className={styles.recipeswrapper}>
         {recipes.map((recipe: RecipeProps) => {

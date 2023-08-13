@@ -21,7 +21,7 @@ export default function Home() {
         </Link>
       </BlogOverviewHeader>
       <FeaturedContainer />
-      <RecentsContainer />
+      <RecentsContainer title='Our most recent recipes' />
       <MealsContainer />
       <VeganRecipeContainer />
       <MediterraneanRecipeContainer />

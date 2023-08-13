@@ -3,13 +3,26 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  background-color: #dbebde;
+
+  background: radial-gradient(
+      at 94% 80%,
+      hsla(167, 31%, 91%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 9% 82%, hsla(53, 56%, 90%, 1) 0px, transparent 50%),
+    radial-gradient(at 13% 26%, hsla(33, 88%, 89%, 1) 0px, transparent 50%),
+    radial-gradient(at 48% 20%, hsla(173, 32%, 88%, 1) 0px, transparent 50%),
+    radial-gradient(at 82% 21%, hsla(109, 51%, 91%, 1) 0px, transparent 50%);
 
   .header_left {
     width: 60%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    .tag_wrapper {
+      width: 20%;
+    }
   }
 
   .header_right {

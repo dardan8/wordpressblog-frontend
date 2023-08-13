@@ -9,6 +9,7 @@
   border-radius: 0.7rem;
   height: 5rem;
   box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.12);
+  color: inherit;
 
   > p {
     display: flex;
@@ -17,13 +18,21 @@
     gap: 0.7rem;
     padding-right: 1rem;
     border-right: 1px solid #cbcbcb;
+    color: #8aa58f;
   }
 
   > p:nth-last-child(1) {
     border-right: none;
   }
 
-  .icons {
-    font-size: 30px;
+  .attr_icon {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: #8aa58f;
+    background-color: #dbebde;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    border: 1px solid #8aa58f7a;
   }
 }

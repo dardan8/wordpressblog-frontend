@@ -9,8 +9,11 @@
 }
 
 .tag_nolink {
-  border: 1px solid #fce8cd;
-  color: #aa977d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #997e56;
+  color: #997e56;
   font-size: 14px;
   background-color: #fce8cd75;
   border-radius: 0.5rem;

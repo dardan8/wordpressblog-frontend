@@ -3,6 +3,7 @@ import Header from "@/app/components/Header/Header";
 import Instructions from "@/app/components/Instructions/Instructions";
 import Ingredients from "@/app/components/Ingredients/Ingredients";
 import RecipeAttributes from "@/app/components/RecipeAttributes/RecipeAttributes";
+import RecentsContainer from "@/app/containers/RecentsContainer/RecentsContainer";
 
 export default async function Page({ params }: { params: { recipe: string } }) {
   const singleRecipe = await getSingleRecipe(params.recipe);
@@ -30,6 +31,7 @@ export default async function Page({ params }: { params: { recipe: string } }) {
         <h3>Instructions:</h3>
         <Instructions instructions={singleRecipe.recipeInstructions} />
       </div>
+      <RecentsContainer title='Browse other recipes' />
     </div>
   );
 }

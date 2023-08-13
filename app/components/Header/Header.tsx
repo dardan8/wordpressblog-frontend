@@ -27,7 +27,9 @@ const Header = ({
   return (
     <div className={`${styles.header_wraper} container`}>
       <div className={styles.header_left}>
-        <Tag tag={mealType + " Recipe"} link={`${mealType}`} />
+        <div className={styles.tag_wrapper}>
+          <Tag tag={mealType + " Recipe"} />
+        </div>
         <h1>{title}</h1>
         <h3>{excerpt}</h3>
         <time dateTime={date}> </time>

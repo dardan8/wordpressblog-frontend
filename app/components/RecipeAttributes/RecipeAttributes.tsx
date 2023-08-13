@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./RecipeAttributes.module.scss";
+import { FaRegClock, FaRegUser } from "react-icons/fa6";
+import { PiCookingPotBold } from "react-icons/pi";
 
 type RecipeAttributeProps = {
   cookingTime: string;
@@ -15,13 +17,22 @@ const RecipeAttributes = ({
   return (
     <div className={styles.attributes_wrapper}>
       <p>
-        <span className={styles.icons}>🕛 </span> {cookingTime} Minutes
+        <span className={styles.icons}>
+          <FaRegClock className={styles.attr_icon} />
+        </span>
+        {cookingTime} Minutes
       </p>
       <p>
-        <span className={styles.icons}>👥 </span> {recipeYield} people
+        <span className={styles.icons}>
+          <FaRegUser className={styles.attr_icon} />
+        </span>
+        {recipeYield} people
       </p>
       <p>
-        <span className={styles.icons}>🍽 </span> {cookingMethod}
+        <span className={styles.icons}>
+          <PiCookingPotBold className={styles.attr_icon} />
+        </span>
+        {cookingMethod}
       </p>
     </div>
   );
