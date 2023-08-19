@@ -1,5 +1,5 @@
 import React from "react";
-import { getMealTypes } from "@/app/lib/posts";
+import { getMealTypes } from "@/app/lib/recipeRequests";
 import styles from "./page.module.scss";
 import CategoryTag from "@/app/components/CategoryTag/CategoryTag";
 

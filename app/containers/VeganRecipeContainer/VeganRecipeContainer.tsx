@@ -2,7 +2,7 @@ import HorizontalCard from "@/app/components/BlogCard/HorizontalCard";
 import BlogCard from "@/app/components/BlogCard/BlogCard";
 
 import styles from "./VeganRecipeContainer.module.scss";
-import { getFeaturedPosts } from "@/app/lib/posts";
+import { getFeaturedPosts } from "@/app/lib/recipeRequests";
 import { RecipeProps } from "@/app/types";
 
 const VeganRecipeContainer = async () => {

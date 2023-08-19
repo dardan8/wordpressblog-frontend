@@ -1,4 +1,4 @@
-import graphqlRequest from "./graphqlRequest";
+import graphqlCalls from "./graphqlCalls";
 
 //Query to retrieve all the recipes
 
@@ -45,7 +45,7 @@ export async function getAllRecipes(endCursor = null) {
        }
      `,
   };
-  const resJson = await graphqlRequest(query);
+  const resJson = await graphqlCalls(query);
   const allRecipes = resJson?.data?.recipes;
   return allRecipes;
 }
@@ -114,7 +114,7 @@ export async function getRecipesByTaxonomy({
        }
      `,
   };
-  const resJson = await graphqlRequest(query);
+  const resJson = await graphqlCalls(query);
   if (taxonomy === "mealtypes") {
     const allRecipes = resJson?.data?.mealtypes?.edges[0].node.recipes.nodes;
     return allRecipes;
@@ -158,7 +158,7 @@ export async function getFeaturedPosts() {
           }       }
      `,
   };
-  const resJson = await graphqlRequest(query);
+  const resJson = await graphqlCalls(query);
   const featured = resJson?.data?.recipes?.nodes;
   return featured;
 }
@@ -198,7 +198,7 @@ export async function getLastThreePosts() {
        }
      `,
   };
-  const resJson = await graphqlRequest(query);
+  const resJson = await graphqlCalls(query);
   const result = resJson?.data?.recipes?.nodes;
   return result;
 }
@@ -252,7 +252,7 @@ export async function getSingleRecipe(slug: string) {
     `,
   };
 
-  const resJson = await graphqlRequest(query);
+  const resJson = await graphqlCalls(query);
   const singleRecipe = resJson?.data?.recipe;
   return singleRecipe;
 }
@@ -272,7 +272,7 @@ export async function getMealTypes() {
     }
      `,
   };
-  const resJson = await graphqlRequest(query);
+  const resJson = await graphqlCalls(query);
   const response = resJson?.data?.mealtypes?.nodes;
   return response;
 }

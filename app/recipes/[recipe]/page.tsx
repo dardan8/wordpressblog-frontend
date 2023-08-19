@@ -1,4 +1,4 @@
-import { getSingleRecipe } from "@/app/lib/posts";
+import { getSingleRecipe } from "@/app/lib/recipeRequests";
 import Header from "@/app/components/Header/Header";
 import Instructions from "@/app/components/Instructions/Instructions";
 import Ingredients from "@/app/components/Ingredients/Ingredients";

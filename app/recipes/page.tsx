@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import GetAllPosts from "../components/GetAllPosts";
-import { getAllRecipes } from "../lib/posts";
+import { getAllRecipes } from "../lib/recipeRequests";
 import BlogOverviewHeader from "../containers/BlogOverviewHeader/BlogOverviewHeader";
 
 export default async function Page() {

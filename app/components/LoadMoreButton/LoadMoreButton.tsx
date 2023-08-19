@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./LoadMoreButton.module.scss";
 import PlusIcon from "../../../public/assets/icons/plus-icons.svg";
-import { getAllRecipes } from "@/app/lib/posts";
+import { getAllRecipes } from "@/app/lib/recipeRequests";
 import { RecipeProps } from "@/app/types";
 
 const LoadMoreButton = ({ recipes, setRecipes }: any) => {

@@ -1,5 +1,5 @@
 import "./MealsContainer.module.scss";
-import { getMealTypes } from "@/app/lib/posts";
+import { getMealTypes } from "@/app/lib/recipeRequests";
 import CategoryTag from "@/app/components/CategoryTag/CategoryTag";
 import styles from "./MealsContainer.module.scss";
 

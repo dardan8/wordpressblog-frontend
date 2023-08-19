@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./MediterraneanRecipeContainer.module.scss";
-import { getRecipesByTaxonomy } from "@/app/lib/posts";
+import { getRecipesByTaxonomy } from "@/app/lib/recipeRequests";
 import { RecipeProps } from "@/app/types";
 import HorizontalCard from "@/app/components/BlogCard/HorizontalCard";
 

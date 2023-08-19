@@ -1,7 +1,7 @@
 "use client";
 
-import { getMealTypes } from "@/app/lib/posts";
-import { getRecipesByTaxonomy } from "@/app/lib/posts";
+import { getMealTypes } from "@/app/lib/recipeRequests";
+import { getRecipesByTaxonomy } from "@/app/lib/recipeRequests";
 
 import GetAllPosts from "@/app/components/GetAllPosts";
 import BlogCard from "@/app/components/BlogCard/BlogCard";

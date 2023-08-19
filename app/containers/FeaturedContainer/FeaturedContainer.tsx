@@ -3,7 +3,7 @@ import styles from "./FeaturedContainer.module.scss";
 import Tag from "@/app/components/Tag/Tag";
 import Image from "next/image";
 import Link from "next/link";
-import { getFeaturedPosts } from "@/app/lib/posts";
+import { getFeaturedPosts } from "@/app/lib/recipeRequests";
 
 const FeaturedContainer = async () => {
   const featuredPosts = await getFeaturedPosts();

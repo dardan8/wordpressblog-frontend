@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./RecentsContainer.module.scss";
 import BlogCard from "@/app/components/BlogCard/BlogCard";
-import { getLastThreePosts } from "../../lib/posts";
+import { getLastThreePosts } from "../../lib/recipeRequests";
 import { RecipeProps } from "@/app/types";
 import Button from "@/app/components/Button/Button";
 import Link from "next/link";
