@@ -5,7 +5,7 @@ import Button from "../../components/Button/Button";
 
 type HeaderProps = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   children?: ReactElement;
 };
 
@@ -13,7 +13,7 @@ const BlogOverviewHeader = ({ title, subtitle, children }: HeaderProps) => {
   return (
     <div className={styles.header}>
       <h1>{title}</h1>
-      <h3>{subtitle}</h3>
+      {subtitle && <h3>{subtitle}</h3>}
       {children}
     </div>
   );

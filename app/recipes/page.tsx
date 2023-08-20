@@ -9,8 +9,8 @@ export default async function Page() {
   return (
     <>
       <BlogOverviewHeader
-        title='A selection of revipes for all our readers'
-        subtitle='Easy to udnerstand and right to the point'
+        title='A selection of recipes for all our readers'
+        subtitle='Straight to the point and delicious'
       />
       <div className='recipe_posts'>
         <GetAllPosts recipes={allRecipes} />

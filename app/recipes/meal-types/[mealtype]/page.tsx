@@ -1,13 +1,9 @@
-"use client";
-
-import { getMealTypes } from "@/app/lib/recipeRequests";
+import { getMealTypes, getSingleRecipe } from "@/app/lib/recipeRequests";
 import { getRecipesByTaxonomy } from "@/app/lib/recipeRequests";
-
-import GetAllPosts from "@/app/components/GetAllPosts";
 import BlogCard from "@/app/components/BlogCard/BlogCard";
-
 import styles from "./page.module.scss";
 import BlogOverviewHeader from "@/app/containers/BlogOverviewHeader/BlogOverviewHeader";
+
 type Params = {
   params: {
     mealtype: string;
@@ -23,25 +19,27 @@ const page = async ({ params }: Params) => {
   });
 
   const selectedRecipes = recipes;
-
+  console.log("The length is " + selectedRecipes.length);
   return (
     <div>
-      <BlogOverviewHeader />
-      <h1>Meal Type </h1>
-      <p>{params.mealtype}</p>
+      <BlogOverviewHeader title={`Browse our ${params.mealtype} recipes now`} />
       <div className={`${styles.recipe_area} container`}>
-        {selectedRecipes?.map((recipe: any) => (
-          <BlogCard
-            featuredImage={recipe.featuredImage.node.mediaItemUrl}
-            slug={recipe.slug}
-            title={recipe.title}
-            excerpt={recipe.excerpt}
-            key={recipe.id}
-            cookingTime={recipe.cookingTime}
-            servings={recipe.servings}
-            cookingMethod={recipe.cookingMethods}
-          />
-        ))}
+        {selectedRecipes.length > 0 ? (
+          selectedRecipes?.map((recipe: any) => (
+            <BlogCard
+              featuredImage={recipe.featuredImage.node.mediaItemUrl}
+              slug={recipe.slug}
+              title={recipe.title}
+              excerpt={recipe.excerpt}
+              key={recipe.id}
+              cookingTime={recipe.recipePrepationTime}
+              servings={recipe.recipeYield}
+              cookingMethod={recipe.cookingMethods.nodes[0].name}
+            />
+          ))
+        ) : (
+          <>Oops looks like we don't have any recipes yet.</>
+        )}
       </div>
     </div>
   );

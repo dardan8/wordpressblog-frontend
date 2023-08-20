@@ -2,6 +2,7 @@ import React from "react";
 import { getMealTypes } from "@/app/lib/recipeRequests";
 import styles from "./page.module.scss";
 import CategoryTag from "@/app/components/CategoryTag/CategoryTag";
+import BlogOverviewHeader from "@/app/containers/BlogOverviewHeader/BlogOverviewHeader";
 
 type MealProps = {
   id: string;
@@ -14,19 +15,21 @@ const page = async () => {
   const mealTypes = await getMealTypes();
 
   return (
-    <div className={`${styles.meals_section} container`}>
-      <h1>Browse recipes by meal types</h1>
-      <div className={styles.meal_categories}>
-        {mealTypes?.map((meal: MealProps) => {
-          return (
-            <CategoryTag
-              name={meal.name + ` (${meal.count})`}
-              link={`/recipes/meal-types/${meal.slug}`}
-            />
-          );
-        })}
+    <>
+      <BlogOverviewHeader title='Browse recipes by meal types' />
+      <div className={`${styles.meals_section} container`}>
+        <div className={styles.meal_categories}>
+          {mealTypes?.map((meal: MealProps) => {
+            return (
+              <CategoryTag
+                name={meal.name + ` (${meal.count})`}
+                link={`/recipes/meal-types/${meal.slug}`}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
