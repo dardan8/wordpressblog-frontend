@@ -1,0 +1,40 @@
+.errorwrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  .error_area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .error_icon {
+    font-size: 70px;
+    color: hsla(33, 88%, 89%, 1);
+  }
+
+  .back_text {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 49%;
+      bottom: 0%;
+      width: 300px;
+      height: 14px;
+      transform: skew(-12deg) translateX(-50%);
+      background: hsla(33, 88%, 89%, 1);
+      z-index: -1;
+    }
+  }
+
+  h1 {
+    text-align: center;
+  }
+}
