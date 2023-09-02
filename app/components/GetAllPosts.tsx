@@ -1,7 +1,7 @@
 "use client";
 import BlogCard from "./BlogCard/BlogCard";
 import styles from "./GetAllPosts.module.scss";
-import { RecipeProps } from "../types";
+import { RecipeRes, RecipeSingle } from "../types";
 import LoadMoreButton from "./LoadMoreButton/LoadMoreButton";
 import { useState } from "react";
 
@@ -11,16 +11,16 @@ export default function GetAllPosts({ recipes }: any) {
   return (
     <div className={styles.blog_recipes}>
       <div className={styles.recipe_area}>
-        {allRecipes?.nodes?.map((recipe: RecipeProps) => (
+        {allRecipes?.nodes?.map((recipe: RecipeSingle) => (
           <BlogCard
-            featuredImage={recipe.featuredImage.node.mediaItemUrl}
+            featuredImage={recipe?.featuredImage?.node?.mediaItemUrl}
             slug={recipe.slug}
             title={recipe.title}
             excerpt={recipe.excerpt}
             key={recipe.id}
             cookingTime={recipe.recipePrepationTime}
             servings={recipe.recipeYield}
-            cookingMethod={recipe.cookingMethods.nodes[0].name}
+            cookingMethod={recipe.cookingMethods?.nodes[0].name}
           />
         ))}
       </div>

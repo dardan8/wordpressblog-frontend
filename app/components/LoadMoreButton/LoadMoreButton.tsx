@@ -4,45 +4,55 @@ import Image from "next/image";
 import styles from "./LoadMoreButton.module.scss";
 import PlusIcon from "../../../public/assets/icons/plus-icons.svg";
 import { getAllRecipes } from "@/app/lib/recipeRequests";
-import { RecipeProps } from "@/app/types";
+import { RecipeSingle, RecipeRes } from "@/app/types";
 
-const LoadMoreButton = ({ recipes, setRecipes }: any) => {
+type RecipeState = {
+  recipes: RecipeRes;
+  setRecipes: any;
+};
+
+const LoadMoreButton = ({ recipes, setRecipes }: RecipeState) => {
   const [buttonText, setButtonText] = useState("Load More Recipes");
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const loadMoreButtonClick = async () => {
     setButtonText("Loading...");
     setButtonDisabled(true);
-    const newRecipes = await getAllRecipes(recipes.pageInfo.endCursor);
 
-    let updatedRecipes = {
+    const newRecipes = await getAllRecipes(recipes?.pageInfo?.endCursor);
+
+    let updatedRecipes: RecipeRes = {
       pageInfo: {},
       nodes: [],
     };
 
     updatedRecipes.pageInfo = newRecipes.pageInfo;
 
-    recipes.nodes.map((node: any) => {
+    recipes.nodes.map((node: RecipeSingle) => {
       updatedRecipes.nodes.push(node);
     });
 
-    newRecipes.nodes.map((node) => {
+    newRecipes.nodes.map((node: RecipeSingle) => {
       updatedRecipes.nodes.push(node);
     });
 
     setRecipes(updatedRecipes);
     if (newRecipes.pageInfo.hasNextPage) {
-      setButtonText("Load More Recipes");
+      setButtonText("Load more recipes");
       setButtonDisabled(false);
     } else {
-      setButtonText("All Recipes Loaded");
+      setButtonText("All recipes are loaded");
       setButtonDisabled(true);
     }
   };
 
   return (
     <button
-      className={styles.loadmore_button}
+      className={`${
+        buttonDisabled
+          ? `${styles.loadmore_button_disabled}`
+          : `${styles.loadmore_button}`
+      }`}
       onClick={loadMoreButtonClick}
       disabled={buttonDisabled}
     >

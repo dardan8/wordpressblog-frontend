@@ -1,5 +1,67 @@
-export type RecipeProps = {
+export type RecipeSingle = {
+  cookingMethods: {
+    nodes: {
+      name: string;
+    }[];
+  };
   date: string;
+  excerpt: string;
+  featuredImage: {
+    node: {
+      description: string;
+      altText: string;
+      caption: string;
+      mediaItemUrl: string;
+    };
+  };
+  id: string;
+  link: string;
+  recipeAuthor: string;
+  recipeIngredients: string;
+  recipeInstructions: string;
+  recipePrepationTime: string;
+  recipeYield: string;
+  slug: string;
+  title: string;
+};
+
+export type RecipeRes = {
+  nodes: {
+    cookingMethods: {
+      nodes: {
+        name: string;
+      }[];
+    };
+    date: string;
+    excerpt: string;
+    featuredImage: {
+      node: {
+        description: string;
+        altText: string;
+        caption: string;
+        mediaItemUrl: string;
+      };
+    };
+    id: string;
+    link: string;
+    recipeAuthor: string;
+    recipeIngredients: string;
+    recipeInstructions: string;
+    recipePrepationTime: string;
+    recipeYield: string;
+    slug: string;
+    title: string;
+  }[];
+  pageInfo: {
+    endCursor?: null | string;
+    hasNextPage?: null | string;
+    hasPreviousPage?: null | string;
+    startCursor?: null | string;
+  };
+};
+
+export type RecipeProps = {
+  date?: string;
   id: string;
   title: string;
   slug: string;
@@ -23,36 +85,4 @@ export type RecipeProps = {
     };
   };
   excerpt: string;
-  pageInfo: {
-    endCursor: string;
-    hasNextPage: boolean;
-    hasPreviousPage: boolean;
-    startCursor: string;
-  };
-};
-
-export type RecipeRes = {
-  data: {
-    recipes: {
-      nodes: [
-        {
-          id: string;
-          title: string;
-          slug: string;
-          recipeAuthor: string;
-          recipeIngredients: string;
-          recipeInstructions: string;
-          link: string;
-          featuredImage: {
-            node: {
-              description: string;
-              altText: string;
-              caption: string;
-              mediaItemUrl: string;
-            };
-          };
-        }
-      ];
-    };
-  };
 };

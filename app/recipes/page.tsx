@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import GetAllPosts from "../components/GetAllPosts";
 import { getAllRecipes } from "../lib/recipeRequests";
 import BlogOverviewHeader from "../containers/BlogOverviewHeader/BlogOverviewHeader";
 
 export default async function Page() {
-  const allRecipes = await getAllRecipes();
-
+  const allRec = await getAllRecipes(null);
   return (
     <>
       <BlogOverviewHeader
@@ -13,7 +12,7 @@ export default async function Page() {
         subtitle='Straight to the point and delicious'
       />
       <div className='recipe_posts'>
-        <GetAllPosts recipes={allRecipes} />
+        <GetAllPosts recipes={allRec} />
       </div>
     </>
   );
