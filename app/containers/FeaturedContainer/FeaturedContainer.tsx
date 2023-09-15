@@ -9,7 +9,6 @@ const FeaturedContainer = async () => {
   const featuredPosts = await getFeaturedPosts();
   const featuredPost = featuredPosts[0];
 
-  console.log(featuredPost);
   return (
     <div className={`${styles.featuredcontainer} container`}>
       <Link href={`/recipes/${featuredPost.slug}`}>

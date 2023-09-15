@@ -20,7 +20,7 @@ const page = async ({ params }: Params) => {
   });
 
   const selectedRecipes = recipes;
-  console.log("The length is " + selectedRecipes.length);
+
   return (
     <div>
       <BlogOverviewHeader title={`Browse our ${params.mealtype} recipes now`}>

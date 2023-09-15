@@ -15,7 +15,7 @@ const NavigationMenu = () => {
           <Link href='/recipes'>All Recipes</Link>
         </li>
         <li>
-          <Link href='/subscribe'>Subscribe Now</Link>
+          <Link href='/'>Subscribe Now</Link>
         </li>
       </ul>
     </div>
