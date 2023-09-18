@@ -1,7 +1,7 @@
 "use client";
 import BlogCard from "./BlogCard/BlogCard";
 import styles from "./GetAllPosts.module.scss";
-import { RecipeRes, RecipeSingle } from "../types";
+import { RecipeSingle } from "../types";
 import LoadMoreButton from "./LoadMoreButton/LoadMoreButton";
 import { useState } from "react";
 
