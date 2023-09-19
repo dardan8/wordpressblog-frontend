@@ -1,6 +1,7 @@
 export default async function graphqlRequest(query: {}) {
   const url = "https://recipeblog.dardan.digital/graphql";
   // const url = "http://localhost:8000/graphql";
+
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${process.env.WP_AUTH_REFRESH_TOKEN}`,

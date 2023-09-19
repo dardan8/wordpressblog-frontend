@@ -7,7 +7,7 @@ import { getFeaturedPosts } from "@/app/lib/recipeRequests";
 
 const FeaturedContainer = async () => {
   const featuredPosts = await getFeaturedPosts();
-  const featuredPost = featuredPosts[0];
+  const featuredPost = featuredPosts?.[0];
 
   return (
     <div className={`${styles.featuredcontainer} container`}>
