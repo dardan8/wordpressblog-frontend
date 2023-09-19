@@ -2,7 +2,7 @@ import graphqlCalls from "./graphqlCalls";
 
 //Query to retrieve all the recipes
 
-export async function getAllRecipes(endCursor: null | string | undefined) {
+export async function getAllRecipes(endCursor: any) {
   let condition = `after: "${endCursor}" first: 6`;
   const query = {
     query: `
