@@ -14,19 +14,19 @@
   .meals2 {
     display: flex;
     width: 100%;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .featured_left {
     display: flex;
-    width: 60%;
+    width: 50%;
     align-self: stretch;
   }
 
   .featured_right {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     gap: 2rem;
   }
 }
